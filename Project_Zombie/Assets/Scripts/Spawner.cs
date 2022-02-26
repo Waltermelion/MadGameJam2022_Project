@@ -11,6 +11,8 @@ public class Spawner : MonoBehaviour
     public GameObject[] spawners;
     public GameObject Zombie;
 
+    [SerializeField] private GameObject direcLight;
+
     private void Start()
     {
         spawners = new GameObject[5];
@@ -29,6 +31,7 @@ public class Spawner : MonoBehaviour
         {
             SpawnEnemy();
         }
+        if(direcLight.GetComponent(Rotation))
     }
 
     private void SpawnEnemy()
