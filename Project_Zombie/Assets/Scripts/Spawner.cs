@@ -31,7 +31,7 @@ public class Spawner : MonoBehaviour
         {
             SpawnEnemy();
         }
-        if(direcLight.GetComponent(Rotation))
+        //if(direcLight.GetComponent(Rotation))
     }
 
     private void SpawnEnemy()
