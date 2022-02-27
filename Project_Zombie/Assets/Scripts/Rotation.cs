@@ -10,6 +10,7 @@ public class Rotation : MonoBehaviour
 
     void Start()
     {
+        night = false;
         nightV = new Quaternion(0f, 90f, 90f, 90f);
         dayV = new Quaternion(15f,50f,-30f, 0f);
     }

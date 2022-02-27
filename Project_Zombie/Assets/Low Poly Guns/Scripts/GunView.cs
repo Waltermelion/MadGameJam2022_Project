@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunView : MonoBehaviour
+public partial class GunView : MonoBehaviour
 {
     Vector3 baseScale = new Vector3(0.7f, 0.7f, 0.7f);
     bool isPhone = false, isFirst = true;

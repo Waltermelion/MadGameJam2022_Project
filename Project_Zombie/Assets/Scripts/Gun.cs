@@ -7,10 +7,11 @@ public class Gun : MonoBehaviour
     public float range = 100f;
     public float fireRate = 15f;
     public float impactForce = 30f;
+    [SerializeField] private AudioSource shot;
 
     public Camera fpsCam;
-    public ParticleSystem muzzleFlash;
-    public GameObject impactEffect;
+    //public ParticleSystem muzzleFlash;
+    //public GameObject impactEffect;
 
     private float nextTimeToFire = 0f; 
 
@@ -26,7 +27,8 @@ public class Gun : MonoBehaviour
 
     void Shoot()
     {
-        muzzleFlash.Play();
+        //muzzleFlash.Play();
+        shot.Play();
 
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
@@ -44,8 +46,8 @@ public class Gun : MonoBehaviour
                 hit.rigidbody.AddForce(-hit.normal * impactForce);
             }
 
-            GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-            Destroy(impactGO, 2f);
+            //GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            //Destroy(impactGO, 2f);
         }
     }
 }
