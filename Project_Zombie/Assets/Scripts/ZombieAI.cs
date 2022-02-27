@@ -9,6 +9,9 @@ public class ZombieAI : MonoBehaviour
     
     [SerializeField] private GameObject spawner;
     
+    [SerializeField] private GameObject playerh;
+    [SerializeField] private AudioSource hurt;
+    
     public float health = 50f;
 
     void Update()
@@ -49,5 +52,19 @@ public class ZombieAI : MonoBehaviour
         spawner.GetComponent<Spawner>().enemiesKilled += 1;
         Debug.Log(spawner.GetComponent<Spawner>().enemiesKilled);
         Destroy(gameObject);
+    }
+    
+    void OnTriggerEnter (Collider other) {
+        if (other.tag == "Player")
+        {
+            m_animator.SetTrigger("Attack");
+            Invoke("attack", 0.5f);
+        }
+    }
+
+    void attack()
+    {
+        playerh.GetComponent<playerHealth>().phealth -= 10;
+        hurt.Play();
     }
 }

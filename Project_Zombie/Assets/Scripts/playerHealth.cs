@@ -1,18 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerHealth : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int phealth = 100;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (phealth <= 0)
+        {
+            SceneManager.LoadScene("Game");
+        }
     }
 }
